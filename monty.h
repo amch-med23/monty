@@ -1,14 +1,17 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef MONTY_H_
+#define MONTY_H_
 
-#define _GNU_SOURCE
+#define UNUSED __attribute__((__unused__))
+
+/* Standard Libraries */
+
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
-#include <stdarg.h>
+#include <unistd.h>
 
+#include <string.h>
+
+/* Structs and Lists */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -17,10 +20,11 @@
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
+ * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct stack_s
-{	int n;
+{
+	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
@@ -31,7 +35,7 @@ typedef struct stack_s
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
+ * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct instruction_s
 {
@@ -40,10 +44,11 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * struct list_s - L list of struct instruction
+ * struct list_s - linked list of struct instruction
  * @n: number of line
  * @inst: instruction of opcode and its function
- * @next: points to the next element of the L list
+ * @next: points to the next element of the linked list
+ * Description: Single linked list of the struct instruction
  */
 typedef struct list_s
 {
@@ -54,25 +59,44 @@ typedef struct list_s
 
 extern list_t *list_opcode;
 
-/* Functions */
+/* Prototype Functions */
 
-int open_file(char *mystr);
-list_t *instructioncreation(list_t **head, char *str, int n, FILE *fp);
-void (*pointer_opcode(list_t *head))(stack_t **stack, unsigned int line_number);
+int ret_file(char *str);
+void ch_file(char *str);
+list_t *inst_crt(list_t **head, char *str, int n, FILE *fp);
+void (*opcode_idnf(list_t *head))(stack_t **stack, unsigned int line_number);
 char *str_dup(char *str, FILE *fp);
 int str_len(char *str);
-int stack_length(stack_t *head);
-int cgrab_string_length(char *buffer, char *str);
-void free_my_list_opcode(list_t *head);
-void free_my_list_stack(stack_t *head);
-void *my_calloc(unsigned int nmemb, unsigned int size);
-void push_stack(stack_t **stack, unsigned int line_number);
-void my_stack(stack_t **stack, unsigned int line_number);
-void my_q(stack_t **stack, unsigned int line_number);
-void pall_zstacks(stack_t **stack, unsigned int line_number);
-void pintit(stack_t **stack, unsigned int line_number)
-void is_nothing(stack_t **stack, unsigned int line_number);
-void pop_stack(stack_t **stack, unsigned int line_number);
-void swap_stack(stack_t **stack, UN unsigned int line_number);
-void add_stack(stack_t **stack, unsigned int line_number);
-void nop_stack(UN stack_t **stack, UN unsigned int line_number);
+int str_cln(char *buff, char *str);
+void free_opcode(list_t *head);
+void *_mem_calloc(unsigned int nmemb, unsigned int size);
+void push_opcode(stack_t **stack, unsigned int line_number);
+void pall_opcode(stack_t **stack, unsigned int line_number);
+void _nothing(stack_t **stack, unsigned int line_number);
+int inst_cmp(char *str1, char *str);
+stack_t *nodeint_add(stack_t **head, const int n);
+void free_eve(list_t *list_opcode, stack_t *stack);
+void free_stack(stack_t *head);
+void swap_opcode(stack_t **stack, UNUSED unsigned int line_number);
+void pint_opcode(stack_t **stack, unsigned int line_number);
+int stack_len_op(stack_t *head);
+void pop_opcode(stack_t **stack, unsigned int line_number);
+void add_math(stack_t **stack, unsigned int line_number);
+void nop_opcode(UNUSED stack_t **stack, UNUSED unsigned int line_number);
+void sub_math(stack_t **stack, unsigned int line_number);
+int arg_ch(char *buff);
+int arg_cpy(list_t *t, char *buff);
+void show_error_push(stack_t **stack, int line_number);
+void _div_math(stack_t **stack, unsigned int line_number);
+void _mul_math(stack_t **stack, unsigned int line_number);
+void _mod_math(stack_t **stack, unsigned int line_number);
+stack_t *dnodeint_add_end(stack_t **head, const int n);
+void stack_core_queue(stack_t **stack, unsigned int line_number, int sq);
+void queue_list(stack_t **stack, unsigned int line_number);
+void stack_list(stack_t **stack, unsigned int line_number);
+void pchar_opcode(stack_t **stack, unsigned int line_number);
+void pstr_opcode(stack_t **stack, UNUSED unsigned int line_number);
+void rotl_op(stack_t **stack, UNUSED unsigned int line_number);
+void rotr_op(stack_t **stack, UNUSED unsigned int line_number);
+
+#endif /* MONTY_H_ */
