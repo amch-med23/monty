@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * free_all - Function that frees all the memory heap
+ * free_eve - Function that frees all the memory heap
  * @list: List of instructions
  * @stack: List of stack
  */
@@ -31,7 +31,7 @@ void free_stack(stack_t *head)
 }
 
 /**
- * free_list_opcode - Function that frees the opcode linked list
+ * free_opcode - Function that frees the opcode linked list
  * @head: Head of the linked list
  */
 void free_opcode(list_t *head)

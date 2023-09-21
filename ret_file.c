@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * get_file - a function for getting the monty ByteCode files
+ * ret_file - a function for getting the monty ByteCode files
  * @str: String to be checked
  * Return: line counter. Otherwise if it fails, return the status EXIT_FAILURE
  */

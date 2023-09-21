@@ -54,7 +54,7 @@ void add_math(stack_t **stack, unsigned int line_number)
 
 
 /**
- * _div - Function that divides top values
+ * _div_math - Function that divides top values
  * @stack: stack structure
  * @line_number: Number of instructions
  */

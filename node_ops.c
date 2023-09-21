@@ -42,7 +42,7 @@ stack_t *nodeint_add(stack_t **head, const int n)
 }
 
 /**
- * nodeint_add_end - Function that adds a new node at the end of a linked list
+ * dnodeint_add_end - Function that adds a new node at the end of a linked list
  * @head: Head of the linked list
  * @n: Number of the linked list
  * Return: The address of the new node or NULL if it fails
